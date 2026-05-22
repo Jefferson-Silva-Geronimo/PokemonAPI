@@ -50,6 +50,8 @@ public class PokemonService {
             throw new RuntimeException("Pokémon não encontrado no banco local: " + id);
         }
 
+        pokemon.setTipo(api.getPokemonTypes(id));
+
         pokemon.prepararParaNivelInicial(1);
         return pokemon;
     }
@@ -83,6 +85,8 @@ public class PokemonService {
         int attack = stats.get(1).getAsJsonObject().get("base_stat").getAsInt();
 
         Pokemon pokemon = new Pokemon(id, nome, hp, attack);
+        List<String> tipo = api.getPokemonTypes(id);
+        pokemon.setTipo(tipo);
 
         carregarAbilities(obj, pokemon);
         carregarMoves(obj, pokemon);

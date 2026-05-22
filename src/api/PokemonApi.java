@@ -6,8 +6,16 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
 
 public class PokemonApi {
 
@@ -26,6 +34,29 @@ public class PokemonApi {
 
     public String getPokemon(String name) {
         return get(BASE_URL + "/pokemon/" + name.toLowerCase());
+    }
+
+    public List<String> getPokemonTypes(int id) {
+        String json = getPokemon(id);
+
+        JsonObject obj = JsonParser.parseString(json).getAsJsonObject();
+        JsonArray types = obj.getAsJsonArray("types");
+
+        List<String> result = new ArrayList<>();
+
+        if (types != null) {
+            for (int i = 0; i < types.size(); i++) {
+                String tipo = types.get(i)
+                        .getAsJsonObject()
+                        .getAsJsonObject("type")
+                        .get("name")
+                        .getAsString();
+
+                result.add(tipo);
+            }
+        }
+
+        return result;
     }
 
     public String get(String url) {

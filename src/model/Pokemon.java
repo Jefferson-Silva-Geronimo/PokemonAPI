@@ -14,6 +14,7 @@ public class Pokemon {
     private int xp;
     private boolean basico;
     private boolean evoluiu;
+    private List<String> tipos;
 
     private String evolutionName;
     private int evolutionMinLevel;
@@ -109,6 +110,14 @@ public class Pokemon {
 
     public void setApiId(int apiId) {
         this.apiId = Math.max(0, apiId);
+    }
+
+    public List<String> getTipo() {
+        return tipos;
+    }
+
+    public void setTipo(List<String> tipo) {
+        this.tipos = tipo;
     }
 
     public void setNome(String nome) {

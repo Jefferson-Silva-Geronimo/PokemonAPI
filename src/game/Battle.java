@@ -175,7 +175,9 @@ public class Battle {
     }
 
     private int calcularDano(Pokemon atacante, int danoBase) {
-        int dano = danoBase + atacante.getAttack();
+        // int dano = danoBase + atacante.getAttack();
+        int dano = danoBase;
+        System.out.println("Tipo do Pokemon Atacante: " + atacante.getTipo());
         return Math.max(1, dano);
     }
 
@@ -209,6 +211,7 @@ public class Battle {
         System.out.println("Nível: " + player.getPokemon().getLevel());
         System.out.println("XP: " + player.getPokemon().getXp() + "/" + player.getPokemon().xpNecessarioParaProximoNivel());
         System.out.println("Poções: " + player.getPotions());
+        System.out.println("Tipos: " + String.join(", ", player.getPokemon().getTipo()));
 
         System.out.println("----------------------------");
 
