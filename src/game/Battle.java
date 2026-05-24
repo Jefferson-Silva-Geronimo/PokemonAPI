@@ -11,6 +11,22 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * Classe responsável pelo sistema de batalha do jogo.
+ *
+ * Gerencia o fluxo de combate entre jogador e inimigo,
+ * incluindo turnos, uso de movimentos, cálculo de dano
+ * e verificação de vitória ou derrota.
+ *
+ * Objetivo:
+ * - Controlar fluxo da batalha
+ * - Aplicar regras de combate
+ * - Exibir status e ações no console
+ *
+ * Conceitos aplicados:
+ * - POO
+ * - Lógica de negócio
+ */
 public class Battle {
 
     private final Player player;

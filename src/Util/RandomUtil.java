@@ -5,6 +5,20 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * Classe utilitária para geração de números aleatórios.
+ *
+ * Usada para sorteios no jogo, como escolha de inimigos
+ * e Pokémons iniciais.
+ *
+ * Objetivo:
+ * - Centralizar lógica de aleatoriedade
+ * - Garantir reutilização segura
+ *
+ * Conceitos aplicados:
+ * - Utilitário estático
+ * - Encapsulamento de lógica
+ */
 public class RandomUtil {
 
     private static final Random RANDOM = new Random();

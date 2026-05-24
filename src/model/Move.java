@@ -4,6 +4,20 @@ import exception.InvalidMoveException;
 
 import java.util.Random;
 
+/**
+ * Classe que representa um movimento (ataque) de um Pokémon.
+ *
+ * Contém informações como nome, tipo, poder, precisão
+ * e quantidade de usos (PP).
+ *
+ * Objetivo:
+ * - Representar ataques utilizados em batalha
+ * - Controlar uso de PP e precisão do golpe
+ *
+ * Conceitos aplicados:
+ * - POO
+ * - Encapsulamento
+ */
 public class Move {
 
     private String nome;

@@ -9,6 +9,19 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+/**
+ * Classe responsável pelo salvamento e carregamento do progresso do jogador.
+ *
+ * Armazena dados do jogo no banco e permite retomar a partida posteriormente.
+ *
+ * Objetivo:
+ * - Salvar estado do jogo
+ * - Carregar progresso do jogador
+ *
+ * Conceitos aplicados:
+ * - Persistência de dados
+ * - POO
+ */
 public class SaveRepository {
 
     private final PokemonRepository pokemonRepository;

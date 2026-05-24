@@ -1,5 +1,19 @@
 package model;
 
+/**
+ * Classe que representa o jogador do jogo.
+ *
+ * Armazena informações como nome do jogador,
+ * Pokémon atual e quantidade de poções.
+ *
+ * Objetivo:
+ * - Gerenciar estado do jogador
+ * - Controlar uso de itens (poções)
+ *
+ * Conceitos aplicados:
+ * - POO
+ * - Encapsulamento
+ */
 public class Player {
 
     private String nome;

@@ -3,6 +3,20 @@ package repository;
 import java.sql.Connection;
 import java.sql.Statement;
 
+/**
+ * Classe responsável pela criação das tabelas no banco de dados.
+ *
+ * Executada no início do sistema para garantir que a estrutura
+ * necessária existe.
+ *
+ * Objetivo:
+ * - Criar tabelas no banco H2
+ * - Preparar ambiente de persistência
+ *
+ * Conceitos aplicados:
+ * - Banco de dados
+ */
+
 public class DatabaseInitializer {
 
     public void criarTabelas() {

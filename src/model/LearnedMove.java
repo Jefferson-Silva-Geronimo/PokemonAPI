@@ -1,5 +1,18 @@
 package model;
 
+/**
+ * Classe que representa um movimento aprendido por um Pokémon em um determinado nível.
+ *
+ * Relaciona um movimento com o nível necessário para aprendê-lo.
+ *
+ * Objetivo:
+ * - Controlar progressão de habilidades do Pokémon
+ * - Permitir aprendizagem automática ao subir de nível
+ *
+ * Conceitos aplicados:
+ * - Associação entre objetos
+ * - Regra de progressão
+ */
 public class LearnedMove {
 
     private Move move;

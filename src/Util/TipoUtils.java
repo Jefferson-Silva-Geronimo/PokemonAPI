@@ -1,5 +1,19 @@
 package Util;
 
+/**
+ * Classe utilitária que define regras de vantagem e desvantagem entre tipos.
+ *
+ * Retorna multiplicadores de dano com base na relação entre
+ * o tipo do golpe e o tipo do Pokémon defensor.
+ *
+ * Objetivo:
+ * - Centralizar regras de combate
+ * - Facilitar manutenção e expansão do sistema de tipos
+ *
+ * Conceitos aplicados:
+ * - Regra de negócio
+ * - Baixo acoplamento
+ */
 public class TipoUtils {
 
     public static double getMultiplicador(String tipoAtaque, String tipoDefensor) {

@@ -2,6 +2,20 @@ package Util;
 
 import java.util.Scanner;
 
+/**
+ * Classe utilitária para leitura de dados do usuário via console.
+ *
+ * Garante que entradas inválidas sejam tratadas e repetidas até
+ * que o usuário informe valores corretos.
+ *
+ * Objetivo:
+ * - Validar entradas do usuário
+ * - Evitar erros de parsing
+ *
+ * Conceitos aplicados:
+ * - Tratamento de exceções
+ * - Reutilização de código
+ */
 public class InputUtil {
 
     private InputUtil() {

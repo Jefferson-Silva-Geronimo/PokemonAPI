@@ -11,6 +11,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Classe principal responsável pelo fluxo do jogo.
+ *
+ * Gerencia o menu inicial, criação de jogador,
+ * escolha de Pokémon e início das batalhas.
+ *
+ * Objetivo:
+ * - Controlar a execução do jogo
+ * - Gerenciar interações com o usuário
+ *
+ * Conceitos aplicados:
+ * - POO
+ * - Separação de responsabilidades
+ */
 public class Game {
 
     private final Scanner sc;

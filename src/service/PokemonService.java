@@ -12,6 +12,22 @@ import repository.PokemonRepository;
 
 import java.util.List;
 
+/**
+ * Classe responsável pela lógica de negócio dos Pokémons.
+ *
+ * Atua como intermediário entre a API externa e o banco de dados,
+ * sendo responsável por carregar, processar e fornecer Pokémons
+ * prontos para uso no jogo.
+ *
+ * Objetivo:
+ * - Buscar dados da API
+ * - Processar e montar objetos Pokémon
+ * - Persistir dados no banco
+ *
+ * Conceitos aplicados:
+ * - Camada de serviço
+ * - Separação de responsabilidades
+ */
 public class PokemonService {
 
     private final PokemonApi api;

@@ -3,6 +3,24 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Classe que representa um Pokémon no jogo.
+ *
+ * Responsável por armazenar atributos como nome, HP, ataque,
+ * nível, experiência, tipos e movimentos.
+ *
+ * Também gerencia regras de evolução, ganho de XP e mecânicas de batalha.
+ *
+ * Objetivo:
+ * - Representar uma entidade Pokémon
+ * - Controlar atributos e evolução
+ * - Gerenciar movimentação e combate
+ *
+ * Conceitos aplicados:
+ * - POO
+ * - Encapsulamento
+ * - Regra de negócio
+ */
 public class Pokemon {
 
     private int apiId;

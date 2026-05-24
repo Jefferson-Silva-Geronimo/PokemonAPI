@@ -1,6 +1,18 @@
 import game.Game;
 import repository.DatabaseInitializer;
 
+/**
+ * Classe principal responsável por iniciar a aplicação.
+ *
+ * Inicializa o banco de dados e inicia o fluxo do jogo.
+ *
+ * Objetivo:
+ * - Configurar ambiente inicial
+ * - Iniciar execução do sistema
+ *
+ * Conceitos aplicados:
+ * - Ponto de entrada da aplicação
+ */
 public class Main {
 
     public static void main(String[] args) {

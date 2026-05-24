@@ -1,5 +1,18 @@
 package model;
 
+/**
+ * Classe que representa uma habilidade de um Pokémon.
+ *
+ * Armazena o nome da habilidade e se ela é oculta.
+ *
+ * Objetivo:
+ * - Representar habilidades individuais de Pokémon
+ * - Exibir informações durante o jogo
+ *
+ * Conceitos aplicados:
+ * - Encapsulamento
+ * - Modelagem de domínio
+ */
 public class Ability {
 
     private String nome;

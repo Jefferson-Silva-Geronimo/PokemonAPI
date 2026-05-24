@@ -11,6 +11,20 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Classe responsável pela persistência de dados de Pokémon.
+ *
+ * Realiza operações de salvar e buscar Pokémon
+ * no banco de dados.
+ *
+ * Objetivo:
+ * - Armazenar dados de Pokémon
+ * - Recuperar informações do banco
+ *
+ * Conceitos aplicados:
+ * - DAO (Data Access Object)
+ * - POO
+ */
 public class PokemonRepository {
 
     public boolean existe(int id) {

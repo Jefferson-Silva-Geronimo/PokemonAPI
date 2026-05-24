@@ -16,7 +16,20 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-
+/**
+ * Classe responsável por consumir a PokéAPI.
+ *
+ * Realiza requisições HTTP para obter dados de Pokémon,
+ * movimentos e tipos.
+ *
+ * Objetivo:
+ * - Integrar o sistema com API externa
+ * - Buscar dados dinâmicos dos Pokémon
+ *
+ * Conceitos aplicados:
+ * - Integração com API
+ * - Cache de requisições
+ */
 public class PokemonApi {
 
     private static final String BASE_URL = "https://pokeapi.co/api/v2";
