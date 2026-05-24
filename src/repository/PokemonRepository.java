@@ -55,6 +55,7 @@ public class PokemonRepository {
                 }
 
                 salvarPokemon(conn, pokemon);
+                salvarTipos(conn, pokemon);
                 salvarAbilities(conn, pokemon);
                 salvarMoves(conn, pokemon);
                 salvarEvolucao(conn, pokemon);
@@ -68,6 +69,29 @@ public class PokemonRepository {
 
         } catch (Exception e) {
             throw new RuntimeException("Erro ao salvar Pokémon no banco.", e);
+        }
+    }
+
+    private void salvarTipos(Connection conn, Pokemon pokemon) throws Exception {
+
+        if (pokemon.getTipo() == null || pokemon.getTipo().isEmpty()) return;
+
+        String sql = """
+                        INSERT INTO pokemon_type (pokemon_id, tipo)
+                        VALUES (?, ?)
+                    """;
+
+        try (PreparedStatement ps = conn.prepareStatement(sql)) {
+            for (String tipo : pokemon.getTipo()) {
+
+                if (tipo == null || tipo.isBlank()) continue;
+
+                ps.setInt(1, pokemon.getApiId());
+                ps.setString(2, tipo);
+                ps.addBatch();
+            }
+
+            ps.executeBatch();
         }
     }
 
@@ -172,6 +196,7 @@ public class PokemonRepository {
 
                     pokemon.setBasico(rs.getBoolean("basico"));
 
+                    carregarTipos(conn, pokemon);
                     carregarAbilities(conn, pokemon);
                     carregarLearnedMoves(conn, pokemon);
                     carregarEvolucao(conn, pokemon);
@@ -183,6 +208,25 @@ public class PokemonRepository {
         } catch (Exception e) {
             throw new RuntimeException("Erro ao buscar Pokémon no banco.", e);
         }
+    }
+
+    private void carregarTipos(Connection conn, Pokemon pokemon) throws Exception {
+
+        String sql = "SELECT tipo FROM pokemon_type WHERE pokemon_id = ?";
+
+        List<String> tipos = new ArrayList<>();
+
+        try (PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, pokemon.getApiId());
+
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    tipos.add(rs.getString("tipo"));
+                }
+            }
+        }
+
+        pokemon.setTipo(tipos);
     }
 
     private void carregarAbilities(Connection conn, Pokemon pokemon) throws Exception {

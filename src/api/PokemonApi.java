@@ -79,7 +79,7 @@ public class PokemonApi {
             cache.put(url, response.body());
             return response.body();
 
-        } catch (Exception e) {
+        } catch (Exception e) { 
             throw new ApiException("Erro ao consultar API.", e);
         }
     }

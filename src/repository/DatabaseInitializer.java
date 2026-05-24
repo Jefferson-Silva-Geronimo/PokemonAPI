@@ -84,6 +84,15 @@ public class DatabaseInitializer {
                 )
             """);
 
+            st.execute("""
+                CREATE TABLE IF NOT EXISTS pokemon_type (
+                    id IDENTITY PRIMARY KEY,
+                    pokemon_id INT NOT NULL,
+                    tipo VARCHAR(50) NOT NULL,
+                    FOREIGN KEY (pokemon_id) REFERENCES pokemon(id) ON DELETE CASCADE
+                )
+            """);
+
         } catch (Exception e) {
             throw new RuntimeException("Erro ao criar tabelas do banco.", e);
         }

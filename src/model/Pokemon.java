@@ -312,6 +312,9 @@ public class Pokemon {
         System.out.println("Ataque: " + attack);
         System.out.println("Nível: " + level);
         System.out.println("XP: " + xp + "/" + xpNecessarioParaProximoNivel());
+        if (tipos != null && !tipos.isEmpty()) {
+            System.out.println("Tipos: " + String.join(", ", tipos));
+        }
 
         System.out.println("Habilidades:");
         if (abilities.isEmpty()) {

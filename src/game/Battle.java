@@ -1,6 +1,7 @@
 package game;
 
 import Util.InputUtil;
+import Util.TipoUtils;
 import exception.InvalidMoveException;
 import model.Move;
 import model.Player;
@@ -105,7 +106,7 @@ public class Battle {
                 return true;
             }
 
-            int danoFinal = calcularDano(pokemonJogador, danoBase);
+            int danoFinal = calcularDano(pokemonJogador, enemy, movimento, danoBase);
             enemy.receberDano(danoFinal);
 
             System.out.println(pokemonJogador.getNome() + " usou " + movimento.getNome() + "!");
@@ -142,7 +143,7 @@ public class Battle {
                 return;
             }
 
-            int danoFinal = calcularDano(enemy, danoBase);
+            int danoFinal = calcularDano(enemy, player.getPokemon(), movimento, danoBase);
             player.getPokemon().receberDano(danoFinal);
 
             System.out.println(enemy.getNome() + " usou " + movimento.getNome() + "!");
@@ -174,11 +175,31 @@ public class Battle {
         System.out.println("Dano recebido: " + dano);
     }
 
-    private int calcularDano(Pokemon atacante, int danoBase) {
-        // int dano = danoBase + atacante.getAttack();
-        int dano = danoBase;
-        System.out.println("Tipo do Pokemon Atacante: " + atacante.getTipo());
-        return Math.max(1, dano);
+    private int calcularDano(Pokemon atacante, Pokemon defensor, Move movimento, int danoBase) {
+
+        double multiplicadorTotal = 1.0;
+
+        // Pokémon pode ter mais de 1 tipo
+        for (String tipoDefensor : defensor.getTipo()) {
+
+            double mult = TipoUtils.getMultiplicador(
+                    movimento.getTipo(),
+                    tipoDefensor
+            );
+
+            multiplicadorTotal = Math.max(multiplicadorTotal, mult);
+        }
+
+        int danoFinal = (int) (danoBase * multiplicadorTotal);
+
+        // feedback
+        if (multiplicadorTotal == 2.0) {
+            System.out.println("É SUPER EFETIVO!");
+        } else if (multiplicadorTotal == 0.5) {
+            System.out.println("Não foi muito efetivo...");
+        }
+
+        return Math.max(1, danoFinal);
     }
 
     private void fugir() {
@@ -218,6 +239,7 @@ public class Battle {
         System.out.println("Inimigo: " + enemy.getNome());
         System.out.println("HP: " + enemy.getHp() + "/" + enemy.getMaxHp());
         System.out.println("Nível: " + enemy.getLevel());
+        System.out.println("Tipos: " + String.join(", ", enemy.getTipo()));
         System.out.println("============================");
     }
 }
